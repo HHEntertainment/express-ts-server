@@ -1,0 +1,5 @@
+{
+  "watch": ["./"],
+  "ext": "ts,tsx,graphql",
+  "exec": "node ./src/run.index.ts"
+}
