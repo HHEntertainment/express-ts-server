@@ -4,5 +4,9 @@ type Market {
 }
 
 type Query {
-  Markets: [Market]
+  markets: [Market]
+}
+
+type Mutation {
+  addMarket(base: String!, counter: String!): [Market]
 }

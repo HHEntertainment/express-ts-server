@@ -1,7 +1,0 @@
-type Currency {
-  symbol: String
-}
-
-type Query {
-  Currencies: [Currency]
-}
