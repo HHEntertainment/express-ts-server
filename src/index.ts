@@ -1,17 +1,15 @@
-import * as express from "express";
+import * as express from 'express';
+import { Request, Response, Application } from 'express';
 
-class App {
-  public application : express.Application;
+import { applyGraphqlMiddleware } from './middleware';
+import { schema } from './graphql';
 
-  constructor(){
-    this.application = express();
-  }
-}
+const app: Application = express();
 
-const app = new App().application;
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello world!');
+});
 
-app.get("/", (req: express.Request, res: express.Response) => {
-  res.send("start");
-})
+applyGraphqlMiddleware(app, schema);
 
-app.listen(4000,() => console.log("start"));
+app.listen(4000,() => console.log('Express server with ts is started.'));

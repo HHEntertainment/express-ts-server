@@ -1,0 +1,8 @@
+type Market {
+  base: String
+  counter: String
+}
+
+type Query {
+  Markets: [Market]
+}
