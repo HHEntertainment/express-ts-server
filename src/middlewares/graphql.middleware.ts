@@ -2,9 +2,11 @@ import { Application } from 'express';
 import * as graphqlHTTP from 'express-graphql';
 import { GraphQLSchema } from 'graphql';
 
-export const applyGraphqlMiddleware = (app: Application, schema: GraphQLSchema) => {
-  app.use('/graphql', graphqlHTTP({
+const applyGraphqlMiddleware = (path: string, app: Application, schema: GraphQLSchema) => {
+  app.use(path, graphqlHTTP({
     schema,
     graphiql: true,
   }))
 }
+
+export default applyGraphqlMiddleware;
