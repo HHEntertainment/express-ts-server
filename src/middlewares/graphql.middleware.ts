@@ -6,13 +6,9 @@ const applyGraphqlMiddleware = (path: string, app: Application, schema: GraphQLS
   app.use(path, graphqlHTTP({
     schema,
     graphiql: true,
-    customFormatErrorFn: (err: GraphQLError) => {
+    customFormatErrorFn: (error: GraphQLError) => {
       // Error handling
-      return {
-        message: err.message,
-        locations: err.locations,
-        path: err.path,
-      };
+      return error;
     },
   }))
 }
