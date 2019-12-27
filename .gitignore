@@ -9,5 +9,5 @@ node_modules/
 
 # Environment variables file
 .env
-.env.dev
-.env.prd
+.env.development
+.env.production
