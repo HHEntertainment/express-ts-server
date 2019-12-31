@@ -1,5 +1,9 @@
-import Market from './market';
+import Currency, { CurrencyType, CurrencyServices, CurrencyServiceStatusType, CurrencyAddressExtraProps } from './currency';
 
 export {
-  Market,
+  Currency,
+  CurrencyType,
+  CurrencyServices,
+  CurrencyServiceStatusType,
+  CurrencyAddressExtraProps,
 };

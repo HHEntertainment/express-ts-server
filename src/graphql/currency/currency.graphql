@@ -1,0 +1,47 @@
+enum CurrencyType {
+  FIAT
+  CRYPTO
+}
+
+enum CurrencyServiceStatusType {
+  LAUNCHED
+  STOPPED
+  DISABLED
+}
+
+type CurrencyServices {
+  brokerStatus: CurrencyServiceStatusType
+  depositStatus: CurrencyServiceStatusType
+  exchangeStatus: CurrencyServiceStatusType
+  withdrawalStatus: CurrencyServiceStatusType
+}
+
+type CurrencyAddressExtraProps {
+  extraAddressField: String
+  regexFormat: String
+  required: Boolean
+}
+
+type Currency {
+  id: String!
+  type: CurrencyType!
+  name: String!
+  acronym: String!
+  addressMaxLength: Int
+  addressRegexFormat: String
+  confirmationCount: Int
+  floatingPoint: Int
+  withdrawalMaxPerRequest: String
+  withdrawalMinOut: String!
+  withdrawalTxFee: String!
+  services: CurrencyServices
+  addressExtraProps: CurrencyAddressExtraProps
+}
+
+type Query {
+  currencies: [Currency]
+}
+
+type Mutation {
+  currencyMutation: [Currency]
+}
