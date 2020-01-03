@@ -6,11 +6,25 @@ declare global {
       NODE_ENV: string,
       PORT: string,
       JWT_ENCRYPT_KEY: string,
+      GRAHPIQL: boolean,
     }
   }
 }
 
+enum SupportedEnv {
+  PRODUCTION = "production",
+  DEVELOPMENT = "development",
+}
+
+const isSupportedEnv = (env: string): boolean => {
+  return Object.values(SupportedEnv).some(supportedEnv => supportedEnv === env);
+}
+
 export const loadEnvVariables = (env: string) => {
+  if (isSupportedEnv(env) === false) {
+    throw new Error("Unsupported enviroment")
+  }
+
   dotenv.config({ path: `${__dirname}/../.env.${env}`});
   console.log(`* ${env} * environment variables have been loaded.`);
 }

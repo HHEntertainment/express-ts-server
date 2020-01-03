@@ -5,7 +5,7 @@ import { GraphQLSchema, GraphQLError } from 'graphql';
 const applyGraphqlMiddleware = (path: string, app: Application, schema: GraphQLSchema) => {
   app.use(path, graphqlHTTP({
     schema,
-    graphiql: true,
+    graphiql: process.env.GRAHPIQL,
     customFormatErrorFn: (error: GraphQLError) => {
       // Error handling
       return error;
