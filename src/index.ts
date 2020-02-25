@@ -20,4 +20,4 @@ applyGraphqlMiddleware('/graphql', app, schema);
 apply404Middleware(app);
 applyErrorHandlingMiddleware(app);
 
-app.listen(process.env.PORT,() => console.log('Express server with ts have been started.'));
+app.listen(process.env.PORT || 8080, () => console.log('Express server with ts have been started.'));

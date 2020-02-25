@@ -1,4 +1,6 @@
-import Currency, { CurrencyType, CurrencyServices, CurrencyServiceStatusType, CurrencyAddressExtraProps } from './currency';
+import Currency, {
+  CurrencyType, CurrencyServices, CurrencyServiceStatusType, CurrencyAddressExtraProps,
+} from './currency';
 
 export {
   Currency,

@@ -3,23 +3,23 @@ import { IncomingMessage } from 'http';
 import { Currency, CurrencyType, CurrencyServiceStatusType } from '../../models';
 
 const query: GraphqlResolverMap = {
-  currencies: currencies,
+  currencies,
 };
 
 type CurrenciesParamType = {}
 async function currencies(parent: any, args: CurrenciesParamType, context: IncomingMessage): Promise<Currency[]> {
   return [{
-    id: "btc-id",
+    id: 'btc-id',
     type: CurrencyType.CRYPTO,
-    name: "Bitcoin",
-    acronym: "BTC",
+    name: 'Bitcoin',
+    acronym: 'BTC',
     addressMaxLength: 10,
-    addressRegexFormat: "regex",
+    addressRegexFormat: 'regex',
     confirmationCount: 10,
     floatingPoint: 8,
-    withdrawalMaxPerRequest: "100000",
-    withdrawalMinOut: "444444",
-    withdrawalTxFee: "1000",
+    withdrawalMaxPerRequest: '100000',
+    withdrawalMinOut: '444444',
+    withdrawalTxFee: '1000',
     services: {
       brokerStatus: CurrencyServiceStatusType.LAUNCHED,
       depositStatus: CurrencyServiceStatusType.LAUNCHED,
@@ -27,12 +27,12 @@ async function currencies(parent: any, args: CurrenciesParamType, context: Incom
       withdrawalStatus: CurrencyServiceStatusType.LAUNCHED,
     },
     addressExtraProps: {
-      extraAddressField: "aaa",
-      regexFormat: "aa",
+      extraAddressField: 'aaa',
+      regexFormat: 'aa',
       required: false,
     },
   }];
-};
+}
 
 export default {
   Query: query,

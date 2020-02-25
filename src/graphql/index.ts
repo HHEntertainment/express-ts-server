@@ -14,6 +14,6 @@ const resolvers = mergeResolvers(resolverArray);
 const schema: GraphQLSchema = makeExecutableSchema({
   typeDefs,
   resolvers,
-})
+});
 
 export { schema };

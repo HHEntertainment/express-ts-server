@@ -11,17 +11,17 @@ type CurrencyMutationParamType = {};
 
 async function currencyMutation(parent: any, args: CurrencyMutationParamType, context: IncomingMessage): Promise<Currency[]> {
   return [{
-    id: "btc-id",
+    id: 'btc-id',
     type: CurrencyType.CRYPTO,
-    name: "Bitcoin",
-    acronym: "BTC",
+    name: 'Bitcoin',
+    acronym: 'BTC',
     addressMaxLength: 10,
-    addressRegexFormat: "regex",
+    addressRegexFormat: 'regex',
     confirmationCount: 10,
     floatingPoint: 8,
-    withdrawalMaxPerRequest: "100000",
-    withdrawalMinOut: "444444",
-    withdrawalTxFee: "1000",
+    withdrawalMaxPerRequest: '100000',
+    withdrawalMinOut: '444444',
+    withdrawalTxFee: '1000',
     services: {
       brokerStatus: CurrencyServiceStatusType.LAUNCHED,
       depositStatus: CurrencyServiceStatusType.LAUNCHED,
@@ -29,12 +29,12 @@ async function currencyMutation(parent: any, args: CurrencyMutationParamType, co
       withdrawalStatus: CurrencyServiceStatusType.LAUNCHED,
     },
     addressExtraProps: {
-      extraAddressField: "aaa",
-      regexFormat: "aa",
+      extraAddressField: 'aaa',
+      regexFormat: 'aa',
       required: false,
     },
   }];
-};
+}
 
 export default {
   Mutation: mutation,

@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
-import { isEmpty, get } from 'lodash/fp';
+import { isEmpty } from 'lodash/fp';
 import { IncomingMessage } from 'http';
-import GraphqlResolver from './resolver';
+import { GraphqlResolver } from './resolver';
 import { GraphQLError } from 'graphql';
 
 const withAuthCheck = (resolver: GraphqlResolver): GraphqlResolver => {
@@ -11,17 +11,14 @@ const withAuthCheck = (resolver: GraphqlResolver): GraphqlResolver => {
     jwt.verify(token, process.env.JWT_ENCRYPT_KEY, (err: jwt.VerifyErrors, decoded: object | string) => {
       if (!isEmpty(err)) {
         // Permission handling
-        throw new GraphQLError("UNAUTHORIZED");
+        throw new GraphQLError('UNAUTHORIZED');
       }
-
-      // Extract userId from jwt
-      const userID = get('userId')(decoded);
-    })
+    });
 
     return resolver(parent, args, context);
-  }
+  };
 
   return resolverWithAuthCheck;
-}
+};
 
 export default withAuthCheck;
